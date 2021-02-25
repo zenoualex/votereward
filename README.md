@@ -11,6 +11,13 @@ Command:
 /vote
 ```
 
+
+## Requirements
+
+```python
+Requires https://github.com/FlawwsX/mythic_notify
+```
+
 ## How to install
 
 ```python
