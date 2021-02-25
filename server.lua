@@ -24,15 +24,9 @@ RegisterCommand('vote', function(source, args, rawCommand)
             print(response)
             -- TriggerClientEvent('esx_xp:Add', source, 1000) -- For giving xp
             src_data.addAccountMoney(itemReward , itemRewardCount)
-            TriggerClientEvent('chat:addMessage', -1, {
-                template = '<div class="chat-message server">'..serverName..': {0}</div>',
-                args = { 'You Have beed rewarded. Thanks for voting for our server. You can vote again after 24 hours.' }
-            })
+            TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You Have beed rewarded. Thanks for voting for our server. You can vote again after 24 hours.', length = 2500, style = { ['background-color'] = '#ff0000', ['color'] = '#ffffff' } })
         else
-            TriggerClientEvent('chat:addMessage', -1, {
-                template = '<div class="chat-message server">'..serverName..': {0}</div>',
-                args = { 'You have already vote or didnt vote yet. Visit Topfivem.net and vote for' ..serverName..'.' }
-            })
+            TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You have already vote or didnt vote yet. Visit Topfivem.net and vote for' ..serverName..'.', length = 2500, style = { ['background-color'] = '#0023ff', ['color'] = '#ffffff' } })
         end
     end, 'GET', '')
 end, false)
